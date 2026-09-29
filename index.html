@@ -6,7 +6,7 @@
      like this one for free: https://netlify.new/?utm_campaign=loops&utm_source=ai-legible&utm_medium=owned&utm_content=comment&utm_id=354a4908-4b8c-4ebe-8398-c981658b6a9b
      Netlify hosting facts for this site: static/SSR served via Netlify Edge. -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cinematic Love Garden</title>
+    <title>Happy Birthday!!!🩵</title>
     <style>
         /* Base reset and layout */
         body, html {
@@ -69,11 +69,56 @@
                 font-size: 1rem; /* sm:text-base */
             }
         }
+
+        /* Birthday title */
+        #birthday-container {
+            pointer-events: none;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 11%;
+            display: flex;
+            justify-content: center;
+            padding: 0 1rem;
+            z-index: 2;
+        }
+
+        #birthday-text {
+            margin: 0;
+            font-family: "Georgia", "Times New Roman", serif;
+            font-style: italic;
+            font-weight: 700;
+            font-size: clamp(1.9rem, 8.5vw, 4rem);
+            letter-spacing: 0.04em;
+            text-align: center;
+            color: #ffe3ec;
+            text-shadow:
+                0 0 10px rgba(255,140,180,0.85),
+                0 0 26px rgba(255,90,140,0.6),
+                0 0 54px rgba(255,60,120,0.4);
+            opacity: 0;
+            transform: translateY(14px) scale(0.96);
+            animation: bdayIn 2s ease-out 0.4s forwards,
+                       bdayFloat 5s ease-in-out 2.4s infinite;
+        }
+
+        @keyframes bdayIn {
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        @keyframes bdayFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
     </style>
 </head>
 <body>
     <div id="root">
         <canvas id="garden-canvas"></canvas>
+
+        <div id="birthday-container">
+            <h1 id="birthday-text">Happy Birthday!!!🩵</h1>
+        </div>
 
         <div id="hint-container">
             <p id="hint-text">✿ Click anywhere to plant a flower ✿</p>
