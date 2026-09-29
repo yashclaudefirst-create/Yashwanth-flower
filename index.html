@@ -110,6 +110,31 @@
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-6px); }
         }
+
+        /* Reset button */
+        #reset-btn {
+            position: absolute;
+            right: 1rem;
+            bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+            z-index: 3;
+            padding: 0.6rem 1.1rem;
+            font-family: "Georgia", "Times New Roman", serif;
+            font-size: 0.9rem;
+            letter-spacing: 0.12em;
+            color: #ffe3ec;
+            background: rgba(255,120,165,0.14);
+            border: 1px solid rgba(255,170,200,0.55);
+            border-radius: 999px;
+            cursor: pointer;
+            text-shadow: 0 0 10px rgba(255,140,180,0.7);
+            box-shadow: 0 0 16px rgba(255,90,140,0.25);
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+            transition: background 200ms, transform 150ms;
+        }
+
+        #reset-btn:hover { background: rgba(255,120,165,0.28); }
+        #reset-btn:active { transform: scale(0.94); }
     </style>
 </head>
 <body>
@@ -123,6 +148,8 @@
         <div id="hint-container">
             <p id="hint-text">✿ Click anywhere to plant a flower ✿</p>
         </div>
+
+        <button id="reset-btn" type="button">↺ Reset</button>
     </div>
 
     <script>
@@ -789,6 +816,12 @@
         canvas.addEventListener("pointerdown", (e) => {
             const p = getPos(e);
             engine.plant(p.x, p.y);
+        });
+
+        document.getElementById("reset-btn").addEventListener("click", () => {
+            engine.clear();
+            hintVisible = true;
+            hintText.classList.remove("faded");
         });
     </script>
 </body>
