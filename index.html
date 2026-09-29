@@ -78,8 +78,10 @@
             right: 0;
             top: 11%;
             display: flex;
-            justify-content: center;
-            padding: 0 1rem;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.7rem;
+            padding: 0 1.2rem;
             z-index: 2;
         }
 
@@ -135,6 +137,21 @@
 
         #reset-btn:hover { background: rgba(255,120,165,0.28); }
         #reset-btn:active { transform: scale(0.94); }
+
+        #birthday-sub {
+            margin: 0;
+            max-width: 28rem;
+            font-family: "Georgia", "Times New Roman", serif;
+            font-style: italic;
+            font-size: clamp(0.95rem, 3.8vw, 1.35rem);
+            line-height: 1.5;
+            letter-spacing: 0.03em;
+            text-align: center;
+            color: #ffd3e1;
+            text-shadow: 0 0 12px rgba(255,120,170,0.7), 0 0 28px rgba(255,80,140,0.35);
+            opacity: 0;
+            animation: bdayIn 2s ease-out 1.6s forwards;
+        }
     </style>
 </head>
 <body>
@@ -143,6 +160,7 @@
 
         <div id="birthday-container">
             <h1 id="birthday-text">Happy Birthday!!!🩵</h1>
+            <p id="birthday-sub">Your life will become more beautiful than you ever imagined.</p>
         </div>
 
         <div id="hint-container">
